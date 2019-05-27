@@ -1,0 +1,21 @@
+{
+    "name"       : "e3man/hello-composer",
+    "description": "Hello, Composer!",
+    "type"       : "library",
+    "require"    : {
+      "php": ">=7.0"
+    },
+    "license": "MIT",
+    "authors": [
+      {
+        "name" : "Julian",
+        "email": "snaqkvtkd@gmail.com"
+      }
+    ],
+    "minimum-stability": "stable",
+    "autoload"         : {
+      "psr-4": {
+        "e3man\\": "src/"
+      }
+    }
+  }
