@@ -9,7 +9,9 @@
         }
     ],
     "minimum-stability": "stable",
-    "require"          : {},
+    "require"          : {
+        "e3man/e3man": "dev-master"
+    },
     "autoload"         : {
         "psr-4": {
             "e3man\\": "src/"
