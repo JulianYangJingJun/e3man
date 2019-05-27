@@ -1,21 +1,18 @@
 {
-    "name"       : "e3man/hello-composer",
-    "description": "Hello, Composer!",
-    "type"       : "library",
-    "require"    : {
-      "php": ">=7.0"
-    },
-    "license": "MIT",
-    "authors": [
-      {
-        "name" : "Julian",
-        "email": "snaqkvtkd@gmail.com"
-      }
+    "name"       : "e3man/e3man",
+    "description": "连接ERP",
+    "license"    : "MIT",
+    "authors"    : [
+        {
+            "name" : "Julian Yan",
+            "email": "snaqktvtkd@gmail.com"
+        }
     ],
     "minimum-stability": "stable",
+    "require"          : {},
     "autoload"         : {
-      "psr-4": {
-        "e3man\\": "src/"
-      }
+        "psr-4": {
+            "e3man\\": "src/"
+        }
     }
-  }
+}
