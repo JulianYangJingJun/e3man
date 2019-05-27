@@ -1,11 +1,10 @@
-
 <?php
 namespace e3man;
 
-class HelloComposer
+class HelloE3man
 {
     public static function greet()
     {
-        echo "Hello, Composer!", PHP_EOL;
+        echo "Hello, E3man!", PHP_EOL;
     }
 }
