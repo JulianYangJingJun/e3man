@@ -1,6 +1,6 @@
 {
     "name"       : "e3man/e3man",
-    "description": "连接ERP",
+    "description": "E3 ERP API for Laravel",
     "license"    : "MIT",
     "authors"    : [
         {
@@ -9,9 +9,7 @@
         }
     ],
     "minimum-stability": "stable",
-    "require"          : {
-        "e3man/e3man": "dev-master"
-    },
+    "require"          : {},
     "autoload"         : {
         "psr-4": {
             "e3man\\": "src/"
