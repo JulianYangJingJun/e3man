@@ -1,6 +1,6 @@
 {
     "name"       : "e3man/e3man",
-    "description": "E3 ERP API for Laravel",
+    "description": "E3 test ERP API for Laravel",
     "license"    : "MIT",
     "authors"    : [
         {
