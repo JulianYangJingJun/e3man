@@ -33,7 +33,7 @@ class e3man
      */
     public function test_rtn($msg = '')
     {
-        $config_arr = $this->config->get('e3man.E3');
-        return $msg . ' <strong>develop package!</strong>';
+        $config_arr = config('e3man.E3');
+        return $msg . ' <strong>from your custom develop package</strong>';
     }
 }

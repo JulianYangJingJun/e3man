@@ -1,4 +1,5 @@
 <?php
+
 return [
     'E3'=>[
         'E3_QYERY_URL' => 'http://121.41.163.189/e3test/webopm/web/?app_act=api/ec&app_mode=func',
