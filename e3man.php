@@ -1,6 +1,8 @@
 <?php
 namespace e3man\e3man;
  
+use Illuminate\Session\SessionManager;
+use Illuminate\Config\Repository;
 
 class e3man
 {
@@ -19,10 +21,10 @@ class e3man
      * @param SessionManager $session
      * @param Repository $config
      */
-    public function __construct($app)
+    public function __construct(SessionManager $session, Repository $config)
     {
-        $this->session = $app['session'];
-        $this->config = $app['config'];
+        $this->session = $session;
+        $this->config = $config;
     }
 
     /**
