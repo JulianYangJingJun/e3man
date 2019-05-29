@@ -5,7 +5,14 @@ use e3man\E3;
 
 class E3stock extends E3 implements E3Transport
 {
+    /**
+     * 商品 SKU
+     */
     public $sku;
+
+    /**
+     * 仓库外部编码
+     */
     public $wareHouseCode;
     public $serviceType = 'stock.list.get';
     /**
@@ -30,7 +37,13 @@ class E3stock extends E3 implements E3Transport
 
 class E3OrderGet extends E3 implements E3Transport
 {
+    /**
+     * 店铺代码
+     */
     public $sd_code;
+    /**
+     * 订单编号
+     */
     public $orderSn;
     public $serviceType = 'order.detail.get';
     /**
@@ -76,35 +89,84 @@ class E3OrderCancel extends E3 implements E3Transport
 class E3OrderAdd extends E3 implements E3Transport
 {
     public $serviceType = 'order.add';
-    // public $add_time = '2019-01-01 11:11:11'; //添加时间
-    // public $sd_code = '006'; // 店铺代码
-    // public $order_status = 0; // 订单状态(0,未确认;1,已确认;2,已取消;3,无效;4,退货;5,锁定;6,解锁;7,完成;8,拒收;9,已合并;10,已拆分;)
-    // public $pay_status = 0; // 付款状态(0,未付款;1,付款中 2,已付款;3,已结算)
-    // public $consignee = '李嘉霖'; // 收货人
-    // public $province_name = '浙江省'; // 省
-    // public $city_name = '杭州市'; // 市
-    // public $district_name = '西湖区'; //
-    // public $address = '江城路'; // 详细地址
-    // public $user_name = 'snaqktvtkd'; // 会员名
-    // public $email = 'snaqktvtkd@21cn.com'; // 电子邮件
-    // public $mobile = '13858787110'; // 手机号码
-    // public $tel = null; // 电话号码
-    // public $zipcode = '325805'; // 邮政编码
-    // public $pos_code = null; // O2O 门店代码
-    // public $saleShopCode = null; // 下单门店代码
-    // public $salerEmployeeNo = null; // 下单店员编号
-    // public $pay_code = 'alipay'; // 支付方式代码
-    // public $vip_no = '123231'; // 会员编号
-    // public $shipping_code = 'EMS'; // 快递公司代码
-    // public $shipping_fee = '12'; // 运费
-    // public $order_amount = 100; // 买家应付金额
-    // // item
-    // public $sku_sn  = 'test10010001001'; // Sku String 64
-    // public $market_price  = 1000; // 商品单价(折前) String 64
-    // public $goods_price  = 100; // 商品单价(折后) String 64
-    // public $discount  = 1; // 折扣 String 64
-    // public $goods_number  = 1; // 数量 Int 11
-    // public $is_gift  = 0; // 是否礼品 Int 11
+    public $sd_code = '006';
+    public $deal_code = 'elite-2222222223333-I57A8Y';
+    public $receiver_province = '北京';
+    public $shipping_code = 'SF';
+    public $user_name = '祥哥';
+    public $receiver_city = '北京市';
+    public $pay_code = 'weixin';
+    public $receiver_district = '东城区';
+    public $lylx = 0;
+    public $receiver_mobile = '17625345627';
+    public $is_cod = 0;
+    public $pay_time = '';
+    public $shipping_fee = 0.00;
+    public $pay_status = 1;
+    public $order_amount = 10.00;
+    public $receiver_name = '刘';
+    public $payment = 10.00;
+    public $receiver_country = '中国';
+    public $receiver_addr = '北京北京市东城区哈哈哈';
+    public $items = [[
+        'deal_code'   => '2222222223333-I57A8Y',
+        'shop_price'  => 10.00,
+        'goods_number' => 1,
+        'goods_price' => 10.00,
+        'sku'         => 'BBS93020U30046',
+        'order_sn'    => '2222222223333-I57A8Y'
+    ]];
+    public $order_sn = '';
+    /**
+     * 数据值
+     * 
+     * @return dict
+     */
+    public function toJson()
+    {
+        $res = [
+            'sd_code'          => $this->sd_code,
+            'deal_code'        => $this->deal_code,
+            'receiver_province' => $this->receiver_province,
+            'shipping_code'    => $this->shipping_code,
+            'user_name'        => $this->user_name,
+            'receiver_city'    => $this->receiver_city,
+            'pay_code'         => $this->pay_code,
+            'receiver_district' => $this->receiver_district,
+            'lylx'             => $this->lylx,
+            'receiver_mobile'  => $this->receiver_mobile,
+            'is_cod'           => $this->is_cod,
+            'pay_time'         => $this->pay_time,
+            'shipping_fee'     => $this->shipping_fee,
+            'pay_status'       => $this->pay_status,
+            'order_amount'     => $this->order_amount,
+            'receiver_name'    => $this->receiver_name,
+            'payment'          => $this->payment,
+            'receiver_country' => $this->receiver_country,
+            'receiver_addr'    => $this->receiver_addr,
+            'items' => $this->items,
+            'order_sn' => $this->order_sn
+        ];
+        return json_encode($res);
+    }
+}
+
+class E3OrderReturnAdd extends E3 implements E3Transport
+{
+    public $serviceType = 'order.return.add';
+    public $order_sn = '19052972666713';
+    public $return_ck_code = '11005016';
+    public $return_kw_code = '000';
+    public $return_type = 1;
+    public $order_return_goods = [[
+        'sku' => 'ABCHZK12B344WN39',
+        'goods_number' => '1',
+        'market_price' => '',
+        'goods_price' => '',
+        'discount' => ''
+    ]];
+
+
 
     /**
      * 数据值
@@ -114,50 +176,17 @@ class E3OrderAdd extends E3 implements E3Transport
     public function toJson()
     {
         $res = [
-            'total' => '580',
-            'data' => [
-                'line' => '1',
-                'add_time' => '2019-05-22 16:11:39',
-                'order_sn' => 'Julian_test_92929292110121212',
-                'sd_code' => '006',
-                'order_status' => 2,
-                'pay_status' => 1,
-                'consignee' => '李嘉霖',
-                'province_name' => '浙江省',
-                'city_name' => '杭州市',
-                'district_name' => '西湖区',
-                'address' => '江城路',
-                'user_name' => '5053407',
-                'email' => 'xxxx@gmail.com',
-                'mobile' => '13010101010',
-                'tel' => '057788888888',
-                'zipcode' => '325805',
-                'pos_code' => '1',
-                'saleShopCode' => '',
-                'salerEmployeeNo' => '',
-                'pay_code' => 'alipay',
-                'vip_no' => '123231',
-                'shipping_code' => 'EMS',
-                'shipping_fee' => '12',
-                'order_amount' => '122',
-                'items' => [
-                    'sku_sn' => 'ABSZH03CH06NV46',
-                    'market_price' => '3599.00',
-                    'goods_price' => '3599.00',
-                    'discount' => '0',
-                    'goods_number' => '1',
-                    'is_gift' => '0',
-                ]
-            ],
+            'sell_return_record' => [
+                'order_sn' => $this->order_sn,
+                'return_ck_code' => $this->return_ck_code,
+                'return_kw_code' => $this->return_kw_code,
+                'return_type' => $this->return_type,
+                'order_return_goods' => $this->order_return_goods
+            ]
         ];
         return json_encode($res);
     }
 }
-
-
-
-
-
 
 class E3Factory
 {
@@ -175,6 +204,9 @@ class E3Factory
                 break;
             case 'E3OrderAdd':
                 return new E3OrderAdd();
+                break;
+            case 'E3OrderReturnAdd':
+                return new E3OrderReturnAdd();
                 break;
         }
     }
