@@ -2,7 +2,7 @@
 namespace e3man\e3manServiceProvider;
 
 use Illuminate\Support\ServiceProvider;
-use e3man\e3man;
+use e3man\e3man\e3man;
 
 class e3manServiceProvider extends ServiceProvider
 {
@@ -43,6 +43,6 @@ class e3manServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['packagetest'];
+        return ['e3man'];
     }
 }
