@@ -1,9 +1,9 @@
 <?php
-namespace e3man\E3ServiceProvider;
+namespace e3man\e3manServiceProvider;
 
 use Illuminate\Support\ServiceProvider;
 
-class E3ServiceProvider extends ServiceProvider
+class e3manServiceProvider extends ServiceProvider
 {
     /**
      * 服务提供者加是否延迟加载.
@@ -18,6 +18,8 @@ class E3ServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        
+
         $this->publishes([        
             __DIR__.'/config/E3.php' => config_path('E3.php'),
         ]);
