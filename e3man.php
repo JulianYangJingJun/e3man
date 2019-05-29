@@ -1,5 +1,5 @@
 <?php
-namespace e3man\e3man;
+namespace e3man;
 
 use Illuminate\Session\SessionManager;
 use Illuminate\Config\Repository;

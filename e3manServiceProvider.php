@@ -2,6 +2,7 @@
 namespace e3man\e3manServiceProvider;
 
 use Illuminate\Support\ServiceProvider;
+use e3man\e3man;
 
 class e3manServiceProvider extends ServiceProvider
 {
@@ -31,7 +32,7 @@ class e3manServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('e3man', function ($app) {
-            return new Packagetest($app['session'], $app['config']);
+            return new e3man($app['session'], $app['config']);
         });
     }
 
