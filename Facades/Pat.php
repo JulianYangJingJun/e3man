@@ -7,6 +7,6 @@ class Pat extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'packagetest'; 
+        return 'e3man'; 
     }
 }
