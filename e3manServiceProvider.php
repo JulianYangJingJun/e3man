@@ -1,8 +1,7 @@
 <?php
-namespace e3man\e3manServiceProvider;
+namespace e3man\e3man;
 
-use Illuminate\Support\ServiceProvider;
-use e3man\e3man\e3man;
+use Illuminate\Support\ServiceProvider; 
 
 class e3manServiceProvider extends ServiceProvider
 {
