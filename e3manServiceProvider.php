@@ -18,10 +18,8 @@ class e3manServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
-
-        $this->publishes([        
-            __DIR__.'/config/E3.php' => config_path('E3.php'),
+        $this->publishes([
+            __DIR__ . '/config/e3man.php' => config_path('e3man.php'),
         ]);
     }
 
