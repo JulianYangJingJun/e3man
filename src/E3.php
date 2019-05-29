@@ -14,7 +14,14 @@ define('E3_WARE_HOUSE', " 11003005");
 
 class E3
 {
+    /**
+     * 方法名
+     */
     public $serviceType;
+    /**
+     * 店铺代码
+     */
+    public $sd_code = '006';
 
     /**
      * 测试

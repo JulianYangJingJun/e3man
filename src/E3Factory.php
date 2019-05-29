@@ -165,9 +165,6 @@ class E3OrderReturnAdd extends E3 implements E3Transport
         'goods_price' => '',
         'discount' => ''
     ]];
-
-
-
     /**
      * 数据值
      * 
