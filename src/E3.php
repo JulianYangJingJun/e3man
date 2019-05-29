@@ -21,11 +21,9 @@ class E3
      *
      * @return void
      */
-    public function test()
+    public function getBody()
     {
-        
         $body = $this->request2QueryString();
-
         $client = new Client(
             ['timeout' => 5.0]
         );
@@ -35,13 +33,7 @@ class E3
             ],
             'body' => $body
         ]);
-        echo $response->getStatusCode(), PHP_EOL;
-        // echo $response->getHeaderLine('content-type'); # 'application/json; charset=utf8'
-        echo $response->getBody(), PHP_EOL;
-
-
-        // echo $body,PHP_EOL;
-        // echo $this->request2QueryString(), PHP_EOL;
+        return $response->getBody();
     }
 
     /**
@@ -81,7 +73,7 @@ class E3
      * @return string
      */
     public function generateNowTime()
-    {        
+    {
         return date('YmdHis', strtotime('-1 Minute', time()));
     }
 
