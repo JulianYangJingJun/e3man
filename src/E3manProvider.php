@@ -14,18 +14,17 @@ class E3manProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/config/e3man.php' => base_path('config/e3man.php'),
-            // __DIR__ . '/config/e3man.php' => config_path('e3man.php'),
         ]);
     }
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->singleton('e3man', function ($app) {
-            return new E3man($app['config']);
-        });
-    }
+    // /**
+    //  * Register the application services.
+    //  *
+    //  * @return void
+    //  */
+    // public function register()
+    // {
+    //     $this->app->singleton('e3man', function ($app) {
+    //         return new E3man($app['config']);
+    //     });
+    // }
 }

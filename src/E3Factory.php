@@ -37,10 +37,7 @@ class E3stock extends E3 implements E3Transport
 
 class E3OrderGet extends E3 implements E3Transport
 {
-    /**
-     * 店铺代码
-     */
-    public $sd_code;
+
     /**
      * 订单编号
      */
@@ -89,7 +86,6 @@ class E3OrderCancel extends E3 implements E3Transport
 class E3OrderAdd extends E3 implements E3Transport
 {
     public $serviceType = 'order.add';
-    public $sd_code = '006';
     public $deal_code = 'elite-2222222223333-I57A8Y';
     public $receiver_province = '北京';
     public $shipping_code = 'SF';

@@ -8,10 +8,10 @@ use GuzzleHttp\Client;
  * 
  */
 
-define('E3_QYERY_URL', "http://121.41.163.189/e3test/webopm/web/?app_act=api/ec&app_mode=func");
-define('E3_APP_KEY', "BAISON_E3_BSWMS");
-define('E3_APP_SECRET', "770e253089a257a8070f984d5505aee2");
-define('E3_WARE_HOUSE', " 11003005");
+// define('E3_QYERY_URL', "http://121.41.163.189/e3test/webopm/web/?app_act=api/ec&app_mode=func");
+// define('E3_APP_KEY', "BAISON_E3_BSWMS");
+// define('E3_APP_SECRET', "770e253089a257a8070f984d5505aee2");
+// define('E3_WARE_HOUSE', " 11003005");
 
 class E3
 {
@@ -19,10 +19,21 @@ class E3
      * 方法名
      */
     public $serviceType;
-    /**
-     * 店铺代码
-     */
-    public $sd_code = '006';
+    public $query_url;
+    public $app_key;
+    public $app_secret;
+    public $ware_house;
+    public $sd_code;
+
+    public function __construct()
+    {
+        $config = config('e3man');
+        $this->query_url = $config['E3_QYERY_URL'];
+        $this->app_key = $config['E3_APP_KEY'];
+        $this->app_secret = $config['E3_APP_SECRET'];
+        $this->ware_house = $config['E3_WARE_HOUSE'];
+        $this->sd_code = $config['E3_SD_CODE'];
+    }
 
     /**
      * 测试
@@ -34,8 +45,8 @@ class E3
         $body = $this->request2QueryString();
         $client = new Client(
             ['timeout' => 5.0]
-        );        
-        $response = $client->request('POST', E3_QYERY_URL, [
+        );
+        $response = $client->request('POST', $this->query_url, [
             'headers' => [
                 'Content-Type' => 'application/x-www-form-urlencoded',
             ],
@@ -60,8 +71,8 @@ class E3
      */
     public function generateSpliceString()
     {
-        $res = "key=" . E3_APP_KEY . "&requestTime=" . $this->generateNowTime() .
-            "&secret=" . E3_APP_SECRET . "&version=0.1&serviceType=" . $this->serviceType .
+        $res = "key=" . $this->app_key . "&requestTime=" . $this->generateNowTime() .
+            "&secret=" . $this->app_secret . "&version=0.1&serviceType=" . $this->serviceType .
             "&data=" . $this->toJson();
         return $res;
     }
