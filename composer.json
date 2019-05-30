@@ -1,6 +1,6 @@
 {
     "name"       : "e3man/e3man",
-    "description": "E3 ERPabs API for Laravel",
+    "description": "E3 ERP BXN API for Laravel",
     "license"    : "MIT",
     "authors"    : [
         {
@@ -18,7 +18,7 @@
             "e3man\\": "src/"
         }
     },
-    "extra": {        
+    "extra": {
         "laravel": {           
             "providers": [                
                 "e3man\\e3man\\E3manProvider"
