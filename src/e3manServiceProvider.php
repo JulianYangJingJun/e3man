@@ -10,7 +10,7 @@ class e3manServiceProvider extends ServiceProvider
      *
      * @var bool
      */
-    protected $defer = true;
+    // protected $defer = true;
     /**
      * Bootstrap the application services.
      *
@@ -19,7 +19,7 @@ class e3manServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/e3man.php' => config_path('e3man.php'),
+            __DIR__ . '/config/e3man.php' => base_path('config/e3man.php'),
         ]);
     }
 
