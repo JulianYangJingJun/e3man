@@ -17,15 +17,4 @@ class E3manProvider extends ServiceProvider
             __DIR__ . '/commands/e3man.php' => base_path('app/Console/Commands/e3man.php'),
         ]);
     }
-    // /**
-    //  * Register the application services.
-    //  *
-    //  * @return void
-    //  */
-    // public function register()
-    // {
-    //     $this->app->singleton('e3man', function ($app) {
-    //         return new E3man($app['config']);
-    //     });
-    // }
 }
