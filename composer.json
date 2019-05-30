@@ -1,6 +1,6 @@
 {
     "name"       : "e3man/e3man",
-    "description": "E3 ERPab API for Laravel",
+    "description": "E3 ERPabs API for Laravel",
     "license"    : "MIT",
     "authors"    : [
         {
