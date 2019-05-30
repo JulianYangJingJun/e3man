@@ -46,8 +46,8 @@ class e3man extends Command
         $argv[1] = $argv[2];
         $argv[2] = isset($argv[3]) ? "-{$argv[3]}" : '';
         switch ($arg) {
-            case 'start':
-                $this->start();
+            case 'beat':
+                $this->beat();
                 break;
             case 'stop':
                 break;
@@ -67,7 +67,7 @@ class e3man extends Command
      *
      * @return void
      */
-    private function start()
+    private function beat()
     {
         $task = new Worker();
         $task->onWorkerStart = function ($task) {
