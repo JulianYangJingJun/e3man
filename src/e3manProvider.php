@@ -3,7 +3,7 @@ namespace e3man\e3man;
 
 use Illuminate\Support\ServiceProvider; 
 
-class e3manServiceProvider extends ServiceProvider
+class e3manProvider extends ServiceProvider
 {
     /**
      * 服务提供者加是否延迟加载.
