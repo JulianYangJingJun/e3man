@@ -2,6 +2,7 @@
 namespace e3man;
 
 use GuzzleHttp\Client;
+
 /*
  * Copyright (c) 2019 Julian Yang
  * 
@@ -33,7 +34,7 @@ class E3
         $body = $this->request2QueryString();
         $client = new Client(
             ['timeout' => 5.0]
-        );
+        );        
         $response = $client->request('POST', E3_QYERY_URL, [
             'headers' => [
                 'Content-Type' => 'application/x-www-form-urlencoded',
@@ -87,7 +88,7 @@ class E3
     /**
      * 构建查询时间
      * 
-     * @return []
+     * @return array
      */
     public function generateFilterTime()
     {
