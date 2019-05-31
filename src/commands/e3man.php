@@ -15,7 +15,7 @@ class e3man extends Command
      *
      * @var string
      */
-    protected $signature = 'wk {action}';
+    protected $signature = 'e3man {action}';
 
     /**
      * The console command description.
