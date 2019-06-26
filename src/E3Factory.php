@@ -68,6 +68,7 @@ class E3OrderCancel extends E3 implements E3Transport
     public $serviceType = 'order.cancel.delivery';
     public $deal_code;
     public $ly_type;
+    public $order_sn;
     /**
      * 数据值
      * 
@@ -78,6 +79,7 @@ class E3OrderCancel extends E3 implements E3Transport
         $res = [
             'deal_code' => $this->deal_code,
             'ly_type' => $this->ly_type,
+            'order_sn' => $this->order_sn
         ];
         return json_encode($res);
     }
@@ -88,9 +90,9 @@ class E3OrderAdd extends E3 implements E3Transport
     public $serviceType = 'order.add';
     public $deal_code = 'elite-2222222223333-I57A8Y';
     public $receiver_province = '北京';
-    public $shipping_code = 'SF';
+    public $shipping_code = '';
     public $user_name = '祥哥';
-    public $receiver_city = '北京市';
+    public $receiver_city = 0; //'北京市';
     public $pay_code = 'weixin';
     public $receiver_district = '东城区';
     public $lylx = 0;
@@ -98,6 +100,11 @@ class E3OrderAdd extends E3 implements E3Transport
     public $is_cod = 0;
     public $pay_time = '';
     public $shipping_fee = 0.00;
+    // public $add_time = '';
+    public $shop_code = 0;
+    public $guider_id = 0;
+    public $vip_no = 0;
+
     public $pay_status = 1;
     public $order_amount = 10.00;
     public $receiver_name = '刘';
@@ -133,6 +140,11 @@ class E3OrderAdd extends E3 implements E3Transport
             'receiver_mobile'  => $this->receiver_mobile,
             'is_cod'           => $this->is_cod,
             'pay_time'         => $this->pay_time,
+            // 'add_time'         => $this->add_time,
+            'shop_code'        => $this->shop_code,
+            'guider_id'        => $this->guider_id,
+            'vip_no'           => $this->vip_no,
+            
             'shipping_fee'     => $this->shipping_fee,
             'pay_status'       => $this->pay_status,
             'order_amount'     => $this->order_amount,
@@ -192,7 +204,7 @@ class E3Factory
             case 'E3OrderGet':
                 return new E3OrderGet();
                 break;
-            case 'E3OrderCancel':
+            case 'E3OrderCancel':                
                 return new E3OrderCancel();
                 break;
             case 'E3OrderAdd':
