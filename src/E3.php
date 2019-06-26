@@ -27,18 +27,14 @@ class E3
             'E3_APP_KEY' => "BAISON_E3_BSWMS",
             'E3_APP_SECRET' => "770e253089a257a8070f984d5505aee2",
             'E3_WARE_HOUSE' => "11003004",
-            'E3_SD_CODE' => "006",
+            'E3_SD_CODE' => "001",
         ];
         $this->query_url = $config['E3_QYERY_URL'];
         $this->app_key = $config['E3_APP_KEY'];
         $this->app_secret = $config['E3_APP_SECRET'];
         $this->ware_house = $config['E3_WARE_HOUSE'];
         $this->sd_code = $config['E3_SD_CODE'];
-    }
-
-
-
-    
+    }    
 
     /**
      * 测试
