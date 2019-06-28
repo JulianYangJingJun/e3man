@@ -22,12 +22,19 @@ class E3
 
     public function __construct()
     {
+        // $config = [
+        //     'E3_QYERY_URL' => "http://121.41.163.189/e3test/webopm/web/?app_act=api/ec&app_mode=func",
+        //     'E3_APP_KEY' => "BAISON_E3_BSWMS",
+        //     'E3_APP_SECRET' => "770e253089a257a8070f984d5505aee2",
+        //     'E3_WARE_HOUSE' => "11003004",
+        //     'E3_SD_CODE' => "001",
+        // ];
         $config = [
-            'E3_QYERY_URL' => "http://121.41.163.189/e3test/webopm/web/?app_act=api/ec&app_mode=func",
-            'E3_APP_KEY' => "BAISON_E3_BSWMS",
-            'E3_APP_SECRET' => "770e253089a257a8070f984d5505aee2",
+            'E3_QYERY_URL' => "http://121.41.163.189/e3/webopm/web/?app_act=api/ec&app_mode=func",
+            'E3_APP_KEY' => "BXNSHOP_E3",
+            'E3_APP_SECRET' => "770e253089a257a8070f984d5505aee8",
             'E3_WARE_HOUSE' => "11003004",
-            'E3_SD_CODE' => "001",
+            'E3_SD_CODE' => "233",
         ];
         $this->query_url = $config['E3_QYERY_URL'];
         $this->app_key = $config['E3_APP_KEY'];
