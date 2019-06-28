@@ -100,7 +100,7 @@ class E3OrderAdd extends E3 implements E3Transport
     public $is_cod = 0;
     public $pay_time = '';
     public $shipping_fee = 0.00;
-    // public $add_time = '';
+    public $add_time = '';
     public $shop_code = 0;
     public $guider_id = 0;
     public $vip_no = 0;
@@ -140,7 +140,7 @@ class E3OrderAdd extends E3 implements E3Transport
             'receiver_mobile'  => $this->receiver_mobile,
             'is_cod'           => $this->is_cod,
             'pay_time'         => $this->pay_time,
-            // 'add_time'         => $this->add_time,
+            'add_time'         => $this->add_time,
             'shop_code'        => $this->shop_code,
             'guider_id'        => $this->guider_id,
             'vip_no'           => $this->vip_no,
