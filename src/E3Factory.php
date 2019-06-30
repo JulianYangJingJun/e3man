@@ -14,6 +14,7 @@ class E3stock extends E3 implements E3Transport
      * 仓库外部编码
      */
     public $wareHouseCode;
+    public $pageNo;
     public $serviceType = 'stock.list.get';
     /**
      * 数据值
@@ -25,12 +26,15 @@ class E3stock extends E3 implements E3Transport
         $FilterTime = $this->generateFilterTime();
         $res = [
             'sku' => $this->sku,
-            'warehouseCode' => $this->wareHouseCode,
+            // 'warehouseCode' => $this->wareHouseCode,
+            'ckCode' => $this->wareHouseCode,
             'startModified' => $FilterTime[0],
             'endModified' => $FilterTime[1],
-            'pageNo' => 1,
-            'pageSize' => 10,
+            'pageNo' => $this->pageNo,
+            'pageSize' => 1000,
         ];
+
+        // print_r(json_encode($res));
         return json_encode($res);
     }
 }
@@ -43,22 +47,38 @@ class E3OrderGet extends E3 implements E3Transport
      */
     public $orderSn;
     public $serviceType = 'order.detail.get';
+    public $e3OrderType = true;
+    public $deal_code;
     /**
      * 数据值
-     * 
+     * @杨敬君 {"orderSn":"deal_code","fields":"1000000188"}   这样调用。  
+
      * @return dict
      */
     public function toJson()
     {
         $FilterTime = $this->generateFilterTime();
-        $res = [
-            'sd_code' => $this->sd_code,
-            'orderSn' => $this->orderSn,
-            'startModified' => $FilterTime[0],
-            'endModified' => $FilterTime[1],
-            'pageNo' => 1,
-            'pageSize' => 10,
-        ];
+        if ($this->e3OrderType) {
+            $res = [
+                'sd_code' => $this->sd_code,
+                'orderSn' => $this->orderSn,
+                'startModified' => $FilterTime[0],
+                'endModified' => $FilterTime[1],
+                'pageNo' => 1,
+                'pageSize' => 10,
+            ];
+        } else {
+            $res = [
+                'sd_code' => $this->sd_code,
+                'orderSn' => 'deal_code',
+                'startModified' => $FilterTime[0],
+                'endModified' => $FilterTime[1],
+                'pageNo' => 1,
+                'pageSize' => 10,
+                'fields' => $this->deal_code,
+            ];
+        }
+        // print_r(json_encode($res));
         return json_encode($res);
     }
 }
