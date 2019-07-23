@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
  * Copyright (c) 2019 Julian Yang
  * 
  */
-
+ 
 class E3
 {
     /**
@@ -22,15 +22,8 @@ class E3
 
     public function __construct()
     {
-        // $config = [
-        //     'E3_QYERY_URL' => "http://121.41.163.189/e3test/webopm/web/?app_act=api/ec&app_mode=func",
-        //     'E3_APP_KEY' => "BAISON_E3_BSWMS",
-        //     'E3_APP_SECRET' => "770e253089a257a8070f984d5505aee2",
-        //     'E3_WARE_HOUSE' => "11003004",
-        //     'E3_SD_CODE' => "001",
-        // ];
         $config = [
-            'E3_QYERY_URL' => "http://121.41.163.189/e3/webopm/web/?app_act=api/ec&app_mode=func",
+            'E3_QYERY_URL' => "http://47.92.201.76/e3/webopm/web/?app_act=api/ec&app_mode=func",
             'E3_APP_KEY' => "BXNSHOP_E3",
             'E3_APP_SECRET' => "770e253089a257a8070f984d5505aee8",
             'E3_WARE_HOUSE' => "11003004",
@@ -41,9 +34,9 @@ class E3
         $this->app_secret = $config['E3_APP_SECRET'];
         $this->ware_house = $config['E3_WARE_HOUSE'];
         $this->sd_code = $config['E3_SD_CODE'];
-    }    
+    }
 
-    /**
+    /*
      * 测试
      *
      * @return void
@@ -52,7 +45,7 @@ class E3
     {
         $body = $this->request2QueryString();
         $client = new Client(
-            ['timeout' => 30.0]
+            ['timeout' => 5.0]
         );
         $response = $client->request('POST', $this->query_url, [
             'headers' => [
@@ -81,7 +74,7 @@ class E3
     {
         $res = "key=" . $this->app_key . "&requestTime=" . $this->generateNowTime() .
             "&secret=" . $this->app_secret . "&version=0.1&serviceType=" . $this->serviceType .
-            "&data=" . $this->toJson();
+            "&data=" . $this->toJson();        
         return $res;
     }
     /**
@@ -101,7 +94,7 @@ class E3
      */
     public function generateNowTime()
     {
-        return date('YmdHis', strtotime('-1 Minute', time()));
+        return date('YmdHis', time());
     }
 
     /**
