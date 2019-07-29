@@ -124,6 +124,7 @@ class E3OrderAdd extends E3 implements E3Transport
     public $shop_code = 0;
     public $guider_id = 0;
     public $vip_no = 0;
+    public $is_bxn = 1;
 
     public $pay_status = 1;
     public $order_amount = 10.00;
@@ -164,6 +165,7 @@ class E3OrderAdd extends E3 implements E3Transport
             'shop_code'        => $this->shop_code,
             'guider_id'        => $this->guider_id,
             'vip_no'           => $this->vip_no,
+            'is_bxn'           => $this->is_bxn,
             
             'shipping_fee'     => $this->shipping_fee,
             'pay_status'       => $this->pay_status,
